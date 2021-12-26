@@ -13,7 +13,7 @@ const Product = ({ product }) => {
                     <Card.Title as="div">{product.name}</Card.Title>
                 </Link>
             </Card.Body>
-            <Card.Text as="h3">{product.price} $</Card.Text>
+            <Card.Text as="h3">${product.price}</Card.Text>
         </Card>
     )
 }
