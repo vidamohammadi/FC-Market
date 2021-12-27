@@ -12,7 +12,7 @@ const Product = () => {
            setProduct(response.data)
         }
         sentRequest()
-    }, params)
+    }, [params])
 
     return (
         <div>
