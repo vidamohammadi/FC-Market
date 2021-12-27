@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useParams, Link } from 'react-router-dom'
+import { useParams, useNavigate, Link } from 'react-router-dom'
 import { Row, Col, Button, Image, ListGroup } from 'react-bootstrap'
 import { productDetailAction } from '../action/productAction'
 
@@ -16,6 +16,12 @@ const Product = () => {
     useEffect(() => {
         dispatch(productDetailAction(params.id))
     }, [dispatch, params])
+
+    const navigate = useNavigate()
+
+    const addToCartHandler = () => {
+        navigate(`/cart/${params.id}`)
+    }
 
     return (
         <div>
@@ -43,7 +49,7 @@ const Product = () => {
                     <Col md={3}>
                         <ListGroup variant='flush'>
                             <ListGroup.Item>
-                                <Button className='btn-block' type="button">
+                                <Button onClick={addToCartHandler} className='btn-block' type="button">
                                     Add to Card
                                 </Button>
                             </ListGroup.Item>
